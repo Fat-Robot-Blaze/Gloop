@@ -18,6 +18,11 @@ h2{
     font-size: 300%;
     text-align: center;
     width: 100%;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 #flag{
     position:fixed;
