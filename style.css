@@ -1,0 +1,62 @@
+html {
+    background-color: rgb(74, 74, 74);
+}
+#gloopa{
+    height:100%;
+    display: block;
+    margin: auto;
+}
+#presigloop{
+    width:80%;
+    display: block;
+    margin: auto;
+}
+h2{
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 300%;
+    text-align: center;
+    width: 100%;
+}
+#flag{
+    position:fixed;
+    width:100%;
+    top:0px;
+    z-index: -2;
+    left:0px;
+}
+#actualtop{
+    z-index: -2;
+    position:absolute;
+    height:500px;
+    width:100%;
+    left:0px;
+    top:0px;
+}
+.bottom{
+    position:absolute;
+    border-radius: 25px;
+  background: -webkit-linear-gradient(#ffffff, #b0b0b0);
+  padding: 1%;
+  width: 98%;
+  height: 2500px;
+  left:0px;
+}
+#rounded{
+    color:rgb(74, 74, 74);
+}
+#spacing{
+    height: 500px;
+}
+h1{
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1000%;
+    text-align: center;
+    width: 100%;
+    background: -webkit-linear-gradient(#0800ff, #ffffff, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
