@@ -65,3 +65,9 @@ h1{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+#socials img{
+    width: 20%;
+}
+#socials{
+    height:10%;
+}
