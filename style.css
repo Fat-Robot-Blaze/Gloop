@@ -72,7 +72,7 @@ h1{
   -webkit-text-fill-color: transparent;
 }
 #socials img{
-    width: 20%;
+    width: 10%;
     -webkit-filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
     filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
 }
