@@ -67,7 +67,8 @@ h1{
 }
 #socials img{
     width: 20%;
-    border: 5px solid #FFF;
+    -webkit-filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
+    filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
 }
 #socials{
     height:10%;
