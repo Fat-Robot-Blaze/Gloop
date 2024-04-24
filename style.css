@@ -67,6 +67,7 @@ h1{
 }
 #socials img{
     width: 20%;
+    border: 5px solid #FFF;
 }
 #socials{
     height:10%;
