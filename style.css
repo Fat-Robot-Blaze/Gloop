@@ -9,12 +9,6 @@
     font-family: "Minecraft", sans-serif;
 }
 html {
-  background-image: url("gloopHouse.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto;
-  background-position-x: center;
-  background-position-y: 30%;
 }
 #gloopa {
     position:absolute;
@@ -108,4 +102,14 @@ h1 {
 }
 .flexcontainer div h2{
     flex: 0 0 50%;
+}
+#fixedBG{
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -5;
+}
+div #fixedBG{
+  overflow: hidden;
 }
