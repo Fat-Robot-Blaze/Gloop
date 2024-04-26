@@ -26,6 +26,7 @@ html {
   display:block;
     margin:auto;
     height: inherit;
+    max-width: 100%;
   
 }
 .mainText{
@@ -40,7 +41,8 @@ html {
   margin: auto;
 }
 #presigloop2 {
-  width: 50%;
+  max-width: 75%;
+  max-height: 75%;
   display: block;
   margin: auto;
 }
@@ -61,8 +63,6 @@ h2 {
   z-index: -2;
   height: 800px;
   width: 100%;
-  left: 0px;
-  top: 0px;
 }
 .bg {
   background: rgb(74, 74, 74);
