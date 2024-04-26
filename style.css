@@ -1,80 +1,111 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("minecraft-ten.ttf");
+}
 
+
+*{
+    margin:0;
+    font-family: "Minecraft", sans-serif;
+}
 html {
-    background-color: rgb(74, 74, 74);
+  background-image: url("gloopHouse.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 30%;
 }
-#gloopa{
-    height:100%;
-    display: block;
-    margin: auto;
+#gloopa {
+    position:absolute;
+  width: 100%;
+  height:auto;
+  height: inherit;
 }
-#presigloop{
-    width:80%;
-    display: block;
-    margin: auto;
+#topText {
+  display:block;
+    margin:auto;
+    height: inherit;
+  
 }
-#presigloop2{
+.mainText{
+    width: 95%;
+}
+.textIcon{
+    height:40px;
+}
+#presigloop {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+#presigloop2 {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+.sideText{
+    width: 50%;
+}
+h2 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 300%;
+  text-align: center;
+  width: 100%;
+  color:#ffffff;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000;
+}
+#actualtop {
+  z-index: -2;
+  height: 800px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+.bg {
+  background: rgb(74, 74, 74);
+}
+#rounded {
+  color: rgb(74, 74, 74);
+}
+#spacing {
+  height: 500px;
+}
+h1 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 400%;
+  text-align: center;
+  width: 100%;
+  color:white;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000;
+}
+#socials img {
+  width: 10%;
+  -webkit-filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
+  filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
+}
+.outlineImg{
+    -webkit-filter: drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 #fff) drop-shadow(3px -3px 0 #fff) drop-shadow(-3px 3px 0 #fff);
+  filter: drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 #fff) drop-shadow(3px -3px 0 #fff) drop-shadow(-3px 3px 0 #fff);
+}
+#socials {
+  height: 10%;
+}
+.flexcontainer{
+    display: flex;
+  align-items: center;
+  justify-content: center
+}
+.flexcontainer div{
     width:50%;
-    display: block;
-    margin: auto;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
-h2{
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 300%;
-    text-align: center;
-    width: 100%;
-    text-shadow:
-    -1px -1px 0 #FFF,
-    1px -1px 0 #FFF,
-    -1px 1px 0 #FFF,
-    1px 1px 0 #FFF;  
-}
-#flag{
-    position:fixed;
-    width:100%;
-    top:0px;
-    z-index: -2;
-    left:0px;
-}
-#actualtop{
-    z-index: -2;
-    position:absolute;
-    height:500px;
-    width:100%;
-    left:0px;
-    top:0px;
-}
-.bottom{
-    position:absolute;
-    border-radius: 25px;
-  background: -webkit-linear-gradient(#ffffff, #b0b0b0);
-  padding: 1%;
-  width: 98%;
-  height: 6000px;
-  left:0px;
-}
-#rounded{
-    color:rgb(74, 74, 74);
-}
-#spacing{
-    height: 500px;
-}
-h1{
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    width: 100%;
-    background: -webkit-linear-gradient(#0800ff, #ffffff, #ff0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-#socials img{
-    width: 10%;
-    -webkit-filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
-    filter: drop-shadow(1px 1px 0 #FFF) drop-shadow(-1px -1px 0 #FFF);
-}
-#socials{
-    height:10%;
+.flexcontainer div h2{
+    flex: 0 0 50%;
 }
