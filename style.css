@@ -43,10 +43,20 @@ html {
 .sideText{
     width: 50%;
 }
-h2 {
+h3 {
   font-weight: 400;
   font-style: normal;
   font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+  color:#ffffff;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000;
+}
+h2 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 300%;
   text-align: center;
   width: 100%;
   color:#ffffff;
