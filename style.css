@@ -17,10 +17,13 @@ html {
   height: inherit;
 }
 #topText {
+  position:relative;
   display:block;
     margin:auto;
     height: inherit;
-    max-width: 100%;
+    max-width: 90%;
+    
+    z-index: -5;
   
 }
 .mainText{
@@ -67,6 +70,7 @@ h2 {
   z-index: -2;
   height: 800px;
   width: 100%;
+  transition: .5s ease;
 }
 .bg {
   background: rgb(74, 74, 74);
@@ -123,4 +127,18 @@ h1 {
 }
 div #fixedBG{
   overflow: hidden;
+}
+
+.hoverAnim{
+  transition: .5s ease;
+}
+.hoverAnim:hover  {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#actualtop:hover .hoverAnim{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
