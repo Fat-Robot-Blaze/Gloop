@@ -91,7 +91,7 @@ h1 {
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
     3px 3px 0 #000;
 }
-#socials img {
+.socialImg {
   width: 10%;
   -webkit-filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
   filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
