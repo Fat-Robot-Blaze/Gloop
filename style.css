@@ -15,6 +15,7 @@ html {
   width: 100%;
   height:auto;
   height: inherit;
+  z-index: -6;
 }
 #topText {
   position:relative;
@@ -122,7 +123,7 @@ h1 {
   width: 100%;
   min-height: 100%;
   min-width: 100%;
-  z-index: -5;
+  z-index: -7;
   object-fit: cover;
 }
 div #fixedBG{
