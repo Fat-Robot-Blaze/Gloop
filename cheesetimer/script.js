@@ -3,6 +3,7 @@ let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let resetBtn = document.getElementById('reset');
 let addBtn = document.getElementById('add');
+let add2Btn = document.getElementById('add2');
 
 let hour = 00;
 let minute = 00;
@@ -14,6 +15,9 @@ startBtn.addEventListener('click', function () {
     stopWatch();
 });
 addBtn.addEventListener('click', function () {
+    hour++;
+});
+add2Btn.addEventListener('click', function () {
     minute++;
 });
 stopBtn.addEventListener('click', function () {
