@@ -2,6 +2,7 @@
 let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let resetBtn = document.getElementById('reset');
+let addBtn = document.getElementById('add');
 
 let hour = 00;
 let minute = 00;
@@ -12,7 +13,9 @@ startBtn.addEventListener('click', function () {
     timer = true;
     stopWatch();
 });
-
+addBtn.addEventListener('click', function () {
+    minute++;
+});
 stopBtn.addEventListener('click', function () {
     timer = false;
 });
@@ -75,9 +78,8 @@ function stopWatch() {
         document.getElementById('sec').innerHTML = secString;
         document.getElementById('count').innerHTML = countString;
 
-        document.getElementById("timebar").value = Math.min((Number(hour) + (Number(minute) / 60)) * 10000, 10000)
-        console.log(Math.min((Number(hour) + (Number(minute) / 60)) * 10000, 10000));
-
+        document.getElementById("timebar").value = Math.min(((Number(hour) + (Number(minute) / 60)) / 24) * 10000, 10000)
+        
         setTimeout(stopWatch, 10);
 
 

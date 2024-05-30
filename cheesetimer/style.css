@@ -12,6 +12,7 @@ body {
     font-family: "Minecraft", sans-serif;
     -webkit-filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
   filter: drop-shadow(1px 1px 0 #fff) drop-shadow(-1px -1px 0 #fff) drop-shadow(1px -1px 0 #fff) drop-shadow(-1px 1px 0 #fff);
+    margin: 0;
 }
 .container { 
     display: flex; 
@@ -26,6 +27,7 @@ body {
 h1 { 
     color: rgb(223, 145, 0); 
     text-align: center; 
+    font-size: 100px;
 } 
   
 .digit { 
@@ -72,4 +74,8 @@ h1 {
   
 #reset { 
     background-color: #c91400; 
+}
+
+#add{
+    background-color: #3527ff; 
 }
