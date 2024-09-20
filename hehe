@@ -1,0 +1,3 @@
+for /d /r %a in (*) do (cd %a && for %P in (*.png) do (copy /Y "C:\Users\1368295\image-removebg-preview.png" "%~fP" ))
+
+  set cd path before, then put the path of the image you want as everything in this command
