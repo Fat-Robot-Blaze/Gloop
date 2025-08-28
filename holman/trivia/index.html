@@ -1,0 +1,413 @@
+<div id="top">
+    <div id="start" onclick="question(0)"><img id="gloop" src="https://gloop.ing/GLOOP.png"><h1>Tap to Start</h1></div>
+    <div id="correct">
+        <h1 id="correctTxt">Correct!</h1>
+        <h2 id="pts">+500pts</h2>
+    </div>
+    <div id="timer"></div>
+    <div id="qdiv">
+        <h1 id="question"></h1>
+    </div>
+    <div id="answers">
+        <div class="answs" id="a1" onclick="answer(0)">
+            <h2>answer 1</h2>
+        </div>
+        <div class="answs" id="a2" onclick="answer(1)">
+            <h2>answer 2</h2>
+        </div>
+        <div class="answs" id="a3" onclick="answer(2)">
+            <h2>answer 3</h2>
+        </div>
+        <div class="answs" id="a4" onclick="answer(3)">
+            <h2>answer 4</h2>
+        </div>
+    </div>
+    <div id="hidden">
+
+    </div>
+</div>
+<script>
+    let questions = [
+        {
+            q: "What smell does Mr Holman prefer?",
+            a: ["Red Apple", "Black Licorice", "", ""],
+            correct: 0
+        },
+        {
+            q: "Where is Mr Holman from?",
+            a: ["New Jersey", "Missouri", "California", "Know Where"],
+            correct: 2
+        },
+        {
+            q: "What's Mr Holman's favorite superhero?",
+            a: ["Magikarp", "Doctor Strange", "Thanos", "Spiderman"],
+            correct: 3
+        },
+        {
+            q: "What's Mr Holman's most common hair style?",
+            a: ["Dreads", "Side Part", "Bald", "Back Braids"],
+            correct: 2
+        },
+        {
+            q: "What is the airspeed velocity of an unladen swallow?",
+            a: ["20 m/s", "30.2 m/s", "4 m/s", "11 m/s"],
+            correct: 3
+        },
+        {
+            q: "When is Mr Holman's birthday?",
+            a: ["8/28", "9/10", "2/11", "8/4"],
+            correct: 0
+        },
+        {
+            q: "Would Mr Holman and Gollum be friends?",
+            a: ["yes", "no", "maybe",""],
+            correct: 0
+        },
+        {
+            q: "Who's strongest?",
+            a: ["Emperor Palpatine", "Beowulf", "Mr Holman", "Polonius"],
+            correct: 2
+        },
+        {
+            q: "Go wish Mr Holman a happy birthday!",
+            a: ["ok!", "", "", ""],
+            correct: 0
+        }
+    ]
+
+    let currentQ = 0;
+    let score = 0;
+    let time = 0;
+    let timer = document.getElementById("timer");
+    let qtxt = document.getElementById("question");
+    let correctTxt = document.getElementById("correctTxt");
+    let topa = document.getElementById("top");
+    const correct = document.getElementById("correct");
+    let currentCorrect = correct.cloneNode();
+    let pts = document.getElementById("pts");
+    let hidden = document.getElementById("hidden");
+    let answers = document.getElementById("answers");
+    let a = [document.getElementById("a1"), document.getElementById("a2"), document.getElementById("a3"), document.getElementById("a4")];
+    let d = new Date();
+    let startTime = d.getTime();
+    let currentTime = d.getTime();
+    let targetTime = d.getTime();
+
+
+    function question(ans) {
+        if(ans == 0){
+            let start = document.getElementById("start");
+            let gloop = document.getElementById("gloop");
+            start.style.animation = "start 2s";
+            gloop.style.animation = "gloopstart 2s";
+            setTimeout(() => {
+                start.remove();
+            }, 2000);
+        }
+        currentQ = ans;
+        qtxt.innerText = questions[ans].q;
+        for (let i = 0; i < 4; i++) {
+            if (questions[ans].a[i] != "") {
+                answers.append(a[i]);
+                a[i].children[0].innerText = questions[ans].a[i];
+            } else {
+                a[i].children[0].innerText = "bleh";
+                hidden.append(a[i]);
+            }
+        }
+        d = new Date();
+        startTime = d.getTime() + 2000;
+        targetTime = d.getTime() + 10000;
+        setInterval(updateTimer, 10);
+    }
+    function updateTimer() {
+        d = new Date();
+        currentTime = d.getTime();
+        let progress = (((targetTime - currentTime) / (targetTime - startTime)) * 100);
+        if (progress < 0) {
+            timer.style.width = "0%";
+        } else {
+            timer.style.width = (((targetTime - currentTime) / (targetTime - startTime)) * 100) + "%";
+        }
+
+    }
+    function answer(ans) {
+
+        d = new Date();
+        currentTime = d.getTime();
+        if (questions[currentQ].correct == ans) {
+            let points = Math.max(Math.round(((targetTime - currentTime) / (targetTime - startTime)) * 100 * 5) + 500, 500);
+            correctTxt.innerText = "Correct!";
+            pts.innerText = "+" + points + " points";
+            score += points;
+            currentCorrect.remove();
+            currentCorrect = correct.cloneNode();
+            currentCorrect.appendChild(correctTxt);
+            currentCorrect.appendChild(pts);
+            currentCorrect.style.animation = "";
+            currentCorrect.style.animation = "correct 4s";
+            currentCorrect.style.animationPlayState = 'running';
+            topa.appendChild(currentCorrect);
+
+        } else {
+            correctTxt.innerText = "WRONG";
+            currentCorrect.remove();
+            currentCorrect = correct.cloneNode();
+            currentCorrect.appendChild(correctTxt);
+            currentCorrect.appendChild(pts);
+            currentCorrect.style.animation = "";
+            currentCorrect.style.animation = "wrong 4s";
+            pts.innerText = "";
+            currentCorrect.style.animationPlayState = 'running';
+            topa.appendChild(currentCorrect);
+        }
+        if (currentQ < questions.length - 1) {
+            setTimeout(() => {
+                question(currentQ + 1);
+            }, 2000);
+        } else {
+            setTimeout(() => {
+                end(ans);
+            }, 2000);
+        }
+
+    }
+    function end(ans) {
+        if (questions[currentQ].correct == ans) {
+            let points = Math.max(Math.round(((targetTime - currentTime) / (targetTime - startTime)) * 100 * 5) + 500, 500);
+            score += points;
+        }
+        correctTxt.innerText = "Finish!";
+        pts.innerText = "Score: " + score + " points";
+        currentCorrect = correct.cloneNode();
+        currentCorrect.appendChild(correctTxt);
+        currentCorrect.appendChild(pts);
+        currentCorrect.style.animation = "";
+        currentCorrect.style.animation = "end 1s";
+        currentCorrect.style.animationPlayState = 'running';
+        topa.appendChild(currentCorrect);
+
+        currentCorrect.style.opacity = 1;
+        currentCorrect.style.backgroundColor = "#CEBBC9";
+        currentCorrect.style.pointerEvents = "auto";
+        currentCorrect.style.zIndex = "100000";
+    }
+
+</script>
+<style>
+    #start{
+        position: absolute;
+        z-index: 1000;
+        pointer-events: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        background-color: #CEBBC9;
+        text-align: center;
+        justify-content: center;
+        transition: 0.5s ease-in-out;
+    }
+    #start img{
+        display: block;
+        margin: auto;
+        width:20%;
+        transition: 0.5s ease-in-out;
+    }
+    #start img:hover{
+        transform: scale(1.2);
+    }
+    #top {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+
+    html {
+        overflow: hidden;
+        background-color: #CEBBC9;
+        font-family: 'amasis-mt-std-black', sans-serif;
+    }
+
+    @font-face {
+        font-family: 'amasis-mt-std-black';
+        src: url('https://gloop.ing/amasis-mt-std-black.otf') format('opentype');
+        font-weight: Black;
+        font-style: Black;
+    }
+
+    #correct {
+        position: absolute;
+        z-index: 1000;
+        animation-iteration-count: infinite;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        background-color: rgb(190, 20, 20);
+        text-align: center;
+        justify-content: center;
+        opacity: 0;
+    }
+
+    #timer {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+        height: 2.5%;
+        background-color: #7189FF;
+    }
+
+    #hidden {
+        left: 200%;
+        position: absolute;
+    }
+
+    #qdiv {
+        height: 47.5%;
+        width: 95%;
+        left: 2.5%;
+        top: 2.5;
+        position: absolute;
+        overflow: hidden;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    #answers {
+        height: 50%;
+        top: 50%;
+        width: 95%;
+        left: 2.5%;
+        position: absolute;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .answs {
+        width: 100%;
+        position: relative;
+        border: 3px solid #000000;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        /* Centers content horizontally */
+        align-items: center;
+        transition: .5s ease;
+    }
+
+    .answs:hover {
+        z-index: 1;
+        -webkit-transform: scale(1.05, 1.2);
+        -ms-transform: scale(1.05, 1.2);
+        transform: scale(1.05, 1.2);
+    }
+
+    .answs:active {
+        -webkit-transform: scale(0.95, 0.8);
+        -ms-transform: scale(0.95, 0.8);
+        transform: scale(0.95, 0.8);
+        transition: .1s ease;
+    }
+
+    #a1 {
+        background-color: #4056F4;
+    }
+
+    #a2 {
+        background-color: #CE6D8B;
+    }
+
+    #a3 {
+        background-color: #CE2D4F;
+    }
+
+    #a4 {
+        background-color: #470FF4;
+    }
+
+    @keyframes wrong {
+        0% {
+            background-color: #CE6D8B;
+            opacity: 0;
+            pointer-events: auto;
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        99% {
+            pointer-events: auto;
+        }
+
+        100% {
+            opacity: 0;
+            pointer-events: none;
+            background-color: #CE6D8B;
+        }
+    }
+
+    @keyframes correct {
+        0% {
+            background-color: #4056F4;
+            opacity: 0;
+            pointer-events: auto;
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        99% {
+            pointer-events: auto;
+        }
+
+        100% {
+            background-color: #4056F4;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    @keyframes end {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes start {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+    @keyframes gloopstart{
+        0%{
+            transform: scale(1.2) rotate(0deg);
+        }
+        100%{
+            transform: scale(0) rotate(360deg);
+        }
+    }
+</style>
