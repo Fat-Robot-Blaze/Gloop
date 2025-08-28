@@ -1,7 +1,7 @@
-WELCOME to the GLOOP.ME WEBSITE REPOSITORY
+WELCOME to the GLOOP.ING WEBSITE REPOSITORY
 
-This is the code for the website at https://gloop.me
+This is the code for the website at https://gloop.ing
 
-Support Gloop's campaign by buying his merch at https://locogatothreads.com/collections/gloop
+Support Gloop's campaign by buying his merch (coming soon)
 
-GLOOP 2024
+GLOOP FOR PRESIDENT
