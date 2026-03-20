@@ -24,6 +24,7 @@
         html{
             overflow: hidden;
             background-color: black;
+            pointer-events: none;
         }
     </style>
     <script>
@@ -35,7 +36,10 @@
                     let vid = document.getElementById("vid");
                     vid.play() })
             vid.addEventListener("ended", (event) => { window.location.replace("https://www.popecomputerscience.com/APCSAspring.html"); })
-        
+         document.addEventListener('contextmenu', function (event) {
+                event.preventDefault(); // Prevents the default context menu from appearing
+            });
+
 
     </script>
 </body>
